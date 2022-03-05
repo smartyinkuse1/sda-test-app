@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container">
+  <p [title]="someDescription">{{someString}}</p>
+  <h1>{{someDescription}}</h1>
+  <button type="button" (click)="printAge()" class="btn btn-primary">Click me</button>
+
+  <h3 (mouseenter)="hoverHandler()">Hover me</h3>
+  <p>I am {{age}} years old</p>
+
+  <app-card [cardValue]="cardInfo"></app-card>
+
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus perspiciatis fuga assumenda nobis iste eius fugiat at suscipit accusantium iure modi numquam nesciunt repellendus odit consectetur voluptas natus possimus, impedit obcaecati sed. Minima, cum doloremque ratione eveniet dolores odit consequuntur animi harum facilis numquam ducimus, fuga commodi. Rerum iure debitis fugiat dolore est harum repellendus omnis repellat! Error explicabo incidunt ullam nostrum consequuntur saepe doloremque qui sunt blanditiis consequatur, tenetur ea voluptatum dolores recusandae dolor, illo ut voluptates quaerat cumque. Repellat voluptas molestias asperiores hic quisquam corporis, quia, omnis labore eos doloribus, minus saepe cupiditate dolorem maxime! Corrupti, laboriosam laborum?</p>
+  <p [title]="someDescription">{{someString}}</p>
+  <img [src]="imageUrl" [height]="imgHeight" alt="">
+  <div class="mt-2">
+    <button (click)="onHeightIncrease()" type="button" class="btn btn-primary">Increase</button>
+    <button (click)="onReset()" type="button" class="btn btn-secondary ms-2">Reset</button>
+  </div>
+  <p>{{inputValue}}</p>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Enter some text</label>
+    <input type="text" class="form-control" [(ngModel)]="inputValue" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+
+</div>
+<app-footer></app-footer>
