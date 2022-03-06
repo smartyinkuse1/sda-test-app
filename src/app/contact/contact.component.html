@@ -1,3 +1,8 @@
-<app-header></app-header>
-<p>contact works!</p>
+<!-- This is the parent component -->
+
+<!-- Typical Event Binding we know about (syntax) -->
+<app-header (inputValueEvent)="receiveChildValue($event)"  (searchEvent)="searchTermHandler($event)"></app-header>
+<div class="container">
+  <p>{{contactDetails}}</p>
+</div>
 <app-footer></app-footer>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from './home-page.model';
+import { Card } from '../card/card.model';
 
 @Component({
   selector: 'app-home-page',
@@ -9,12 +9,13 @@ import { Card } from './home-page.model';
 export class HomePageComponent implements OnInit {
   age: number = 10
   someString: string = 'Hello world!';
-  imageUrl: string = 'assets/nagasaki-image.jpg'
+  imageValue: string = 'assets/nagasaki-image.jpg'
   imgHeight: number = 200;
   // imgWidth: number = window.innerWidth;
   buttonState: boolean = false;
   someDescription: string = 'Some Description'
   inputValue: string = "hello";
+  buttonValue: string = 'Click here';
 
   cardInfo: Card = {
     imgUrl: 'assets/nagasaki-image.jpg',
@@ -73,5 +74,12 @@ export class HomePageComponent implements OnInit {
   // Check if the answer is correct, if it's correct, We display A succes message to the user
   // (Bootstrap alert),
   // Wrong answer, We clear the input and display a fail message
+
+
+
+  // Task
+  // Create a component called ImageComponent (ng g c image);
+  // replace img tag with the new component.
+  // Pass the imgUrl to the newly created component (ImageComponent);
 
 }

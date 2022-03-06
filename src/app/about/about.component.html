@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="container">
-  <app-card></app-card>
+  <app-card [cardValue]="cardInfo"></app-card>
+  <app-button></app-button>
 </div>
-<app-footer></app-footer>
+<app-footer (inputEvent)="recieveInput($event)"></app-footer>

@@ -11,6 +11,8 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './tasks/tasks.component';
 import { CardComponent } from './card/card.component';
+import { ButtonComponent } from './button/button.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   //Holds components
@@ -22,7 +24,9 @@ import { CardComponent } from './card/card.component';
     FooterComponent,
     ContactComponent,
     TasksComponent,
-    CardComponent
+    CardComponent,
+    ButtonComponent,
+    ImageComponent
   ],
   // Holds Modules.
   imports: [

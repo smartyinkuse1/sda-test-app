@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +7,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() answer: number | string = '';
+  @Output() inputValueEvent = new EventEmitter();
+  //Looks like a Custom click event
+
+
+  @Output() searchEvent = new EventEmitter();
+
+  inputValue: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  onHandleSubmit(){
+    console.log("Hello world", this.inputValue);
+    this.inputValueEvent.emit(this.inputValue);
+
+    this.searchEvent.emit(this.inputValue);
+  }
+
 
 }
