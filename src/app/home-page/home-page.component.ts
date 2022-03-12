@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { Card } from '../card/card.model';
+import { Person } from './home-page.model';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
-  age: number = 10
+export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
+  age: number = 10;
   someString: string = 'Hello world!';
   imageValue: string = 'assets/nagasaki-image.jpg'
   imgHeight: number = 200;
@@ -22,13 +23,39 @@ export class HomePageComponent implements OnInit {
     title: 'Home Banner Info',
     description: 'Here is some info about this application'
   }
+  timer: any;
+
+  todaysDate: Date = new Date();
+
+  a: number = 0.259;
+  b: number = 1.3495;
+
+  colors: string[] = ['Green', 'Blue', 'Red', 'Yellow']
+
+  persons: Person[] = [
+    {name: "Ola", age: 24},
+    {name: "Tim", age: 10},
+    {name: "Aloy", age: 20}
+  ]
 
   constructor() { }
 
   ngOnInit(): void {
+    // this.timer = setInterval(()=> {
+    //     console.log("Hello");
+    // }, 1000)
+    // this.colors.forEach(x => )
   }
 
-  printAge() {
+  ngDoCheck(): void {
+      // Whenever there's a change to our property values;
+      // It detect a change; (a function call, a property values)
+      // We shouldn't do too much computations
+      // console.log("Hello i'm in DoCheck");
+  }
+
+
+  printAge(value: number) {
     console.log(`Age is ${this.age}`);
     this.buttonState = !this.buttonState;
     if (this.buttonState) {
@@ -36,10 +63,15 @@ export class HomePageComponent implements OnInit {
     }else {
       this.someString = 'Hello world!'
     }
+    this.cardInfo = {
+      imgUrl: 'assets/fitness-image.jpg',
+      title: 'Hello World',
+      description: 'Here we go'
+    }
   }
 
   hoverHandler() {
-    console.log("Hello World");
+    // console.log("Hello World");
   }
 
   onHeightIncrease() {
@@ -82,4 +114,9 @@ export class HomePageComponent implements OnInit {
   // replace img tag with the new component.
   // Pass the imgUrl to the newly created component (ImageComponent);
 
+  ngOnDestroy(): void {
+      // Called when angular destroys a component
+      console.log("I'm leaving the component");
+      clearInterval(this.timer)
+  }
 }

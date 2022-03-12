@@ -13,6 +13,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { CardComponent } from './card/card.component';
 import { ButtonComponent } from './button/button.component';
 import { ImageComponent } from './image/image.component';
+import { ListsComponent } from './lists/lists.component';
+import { BannerCardComponent } from './banner-card/banner-card.component';
 
 @NgModule({
   //Holds components
@@ -26,7 +28,9 @@ import { ImageComponent } from './image/image.component';
     TasksComponent,
     CardComponent,
     ButtonComponent,
-    ImageComponent
+    ImageComponent,
+    ListsComponent,
+    BannerCardComponent
   ],
   // Holds Modules.
   imports: [

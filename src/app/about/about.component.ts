@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Card } from '../card/card.model';
 
@@ -13,9 +13,20 @@ export class AboutComponent implements OnInit {
     title: 'About Info',
     description: 'This is the about component passing data to the card Component'
   }
+  profile: any  = [];
+  value: number = 0;
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
+
+
+  ngOnInit(): void { // Hook --> Most important hooks out of the lifeCycle hooks
+    // called once when the component is instantiated or called by the browser
+    // All Database/Service actions performed here
+    // assign class property values
+    // this.profile = databaseResult
+    console.log("I'm in the onInit method");
+
+
   }
 
   //Write the method the value
