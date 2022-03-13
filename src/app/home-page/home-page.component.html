@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="container">
+  <p>{{random}}</p>
 
   <p *ngIf="age > 5">{{todaysDate | date: 'd/M/yy'}}</p>
 
@@ -9,15 +10,31 @@
     <p *ngSwitchCase="1">The age is 1</p>
     <p *ngSwitchCase="2">The age is 2</p>
     <p *ngSwitchCase="3">The age is 3</p>
-    <p *ngSwitchCase="4">The age is 4</p>
+    <p *ngSwitchCase="4">Hello 4 </p>
     <p *ngSwitchCase="5">The age is 5</p>
     <p *ngSwitchDefault="">The age is Something else</p>
   </div>
 
-  <div *ngFor="let person of persons" class="bg-primary w-100 p-5 m-2">
-    <p class="text-white">Name: {{person.name}}</p>
-    <p class="text-secondary">Age: {{person.age}} </p>
+  <div *ngFor="let person of persons; let i = index;" class="bg-primary w-100 p-5 m-2"
+  [ngClass]="{'bg-secondary': i == persons.length - 1 }">
+    <p class="text-white">Name: {{person.name}} {{i}}</p>
+    <p class="text-secondary">Age: {{person.age}} {{i}} </p>
   </div>
+
+  <!-- String, Array, Object -->
+  <div [ngClass]="styleBold">
+    Some Text Examples
+  </div>
+
+  <h1 [ngClass]="stylings">
+    This is a very good time
+  </h1>
+
+  <!-- {'style': condition} -->
+  <p [ngClass]="{
+    'big': age > 10,
+    'small': age <= 10
+  }">I am a champ</p>
 
   <p [title]="someDescription">{{someString | uppercase }}</p>
   <h1>{{someDescription | lowercase}}</h1>

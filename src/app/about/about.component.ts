@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Card } from '../card/card.model';
 
@@ -15,8 +16,9 @@ export class AboutComponent implements OnInit {
   }
   profile: any  = [];
   value: number = 0;
-  constructor(private router: Router) { }
+  form: FormGroup = {} as FormGroup;
 
+  constructor(private router: Router) { }
 
 
   ngOnInit(): void { // Hook --> Most important hooks out of the lifeCycle hooks
@@ -25,7 +27,10 @@ export class AboutComponent implements OnInit {
     // assign class property values
     // this.profile = databaseResult
     console.log("I'm in the onInit method");
-
+    this.form = new FormGroup({
+      email: new FormControl(''),
+      suggestion: new FormControl('')
+    })
 
   }
 
@@ -39,6 +44,13 @@ export class AboutComponent implements OnInit {
       this.router.navigateByUrl("/contact")
     }
     return;
+
+  }
+
+  onSubmitForm() {
+    console.log(this.form);
+    let value = this.form.value;
+    console.log(value);
 
   }
 

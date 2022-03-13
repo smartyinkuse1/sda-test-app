@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Contact } from './contact.model';
 
@@ -57,6 +58,11 @@ export class ContactComponent implements OnInit {
     }
   }
 
+  onSubmitPersonalInfo(form: NgForm) {
+      console.log(form, form.value);
+    let value = form.value;
+    // Send the object to the DB
+  }
 
 
 

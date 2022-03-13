@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { Card } from '../card/card.model';
+import { TestService } from '../test.service';
 import { Person } from './home-page.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { Person } from './home-page.model';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
-  age: number = 10;
+  age: number = 4;
   someString: string = 'Hello world!';
   imageValue: string = 'assets/nagasaki-image.jpg'
   imgHeight: number = 200;
@@ -17,7 +18,7 @@ export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
   someDescription: string = 'Some Description'
   inputValue: string = "hello";
   buttonValue: string = 'Click here';
-
+  //new Class is a property.
   cardInfo: Card = {
     imgUrl: 'assets/nagasaki-image.jpg',
     title: 'Home Banner Info',
@@ -26,7 +27,8 @@ export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
   timer: any;
 
   todaysDate: Date = new Date();
-
+  styleBold: string = 'bold';
+  stylings: string[] = ['red', 'center']
   a: number = 0.259;
   b: number = 1.3495;
 
@@ -37,14 +39,17 @@ export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
     {name: "Tim", age: 10},
     {name: "Aloy", age: 20}
   ]
+  random: string = '';
+  //BTS testService
 
-  constructor() { }
+  constructor(private testService: TestService) { }
 
   ngOnInit(): void {
     // this.timer = setInterval(()=> {
     //     console.log("Hello");
     // }, 1000)
     // this.colors.forEach(x => )
+    this.random = this.testService.getSomeRandomData()
   }
 
   ngDoCheck(): void {
@@ -56,6 +61,8 @@ export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
 
 
   printAge(value: number) {
+    // this.newClass.name
+    // this.newClass.doSomething()
     console.log(`Age is ${this.age}`);
     this.buttonState = !this.buttonState;
     if (this.buttonState) {
@@ -68,6 +75,8 @@ export class HomePageComponent implements OnInit, DoCheck, OnDestroy {
       title: 'Hello World',
       description: 'Here we go'
     }
+    // this.styleBold = 'font-light';
+    this.age++
   }
 
   hoverHandler() {
